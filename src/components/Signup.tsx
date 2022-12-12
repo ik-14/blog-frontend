@@ -1,7 +1,28 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import {createUserWithEmailAndPassword} from 'firebase/auth';
+import { auth } from "../firebaseconfig";
 
-export default function Signup() {
+
+export default function Signup({setIsAuth}) {
+  const navigate = useNavigate()
+
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  async function createUser() {
+  createUserWithEmailAndPassword(auth, email, password)
+  .then((user) => {
+    setIsAuth(true)
+    navigate('/')
+  })
+  .catch((error) => {
+    console.log(error.code)
+  })
+}
+
+
+
   return (
     <>
       <header>
@@ -13,7 +34,9 @@ export default function Signup() {
 
           <div className="inputField">
             <h4>Email</h4>
-            <input type="input" />
+            <input type="input" onChange={(e) => {
+              setEmail(e.target.value)
+            }}/>
           </div>
 
           <div className="inputField">
@@ -23,15 +46,17 @@ export default function Signup() {
 
           <div className="inputField">
             <h4>Password</h4>
-            <input type="input" />
+            <input type="input" onChange={(e) => {
+              setPassword(e.target.value)
+            }}/>
           </div>
 
-          <button className="buttons">sign up</button>
+          <button className="buttons" onClick={createUser}>sign up</button>
 
           <div>
             <p>
               Already have an account?
-              <NavLink to={"/"}> Sign in</NavLink>
+              <NavLink to={"/login"}> Sign in</NavLink>
             </p>
           </div>
         </div>
