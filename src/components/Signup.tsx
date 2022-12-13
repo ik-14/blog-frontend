@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import {createUserWithEmailAndPassword} from 'firebase/auth';
+import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
 import { auth } from "../firebaseconfig";
 
 
@@ -9,8 +9,9 @@ export default function Signup({setIsAuth}) {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [uname, setUname] = useState('')
 
-  async function createUser() {
+  function createUser() {
   createUserWithEmailAndPassword(auth, email, password)
   .then((user) => {
     setIsAuth(true)
@@ -41,7 +42,9 @@ export default function Signup({setIsAuth}) {
 
           <div className="inputField">
             <h4>Username</h4>
-            <input type="input" />
+            <input type="input" onChange={(e) => {
+              setUname(e.target.value)
+            }}/>
           </div>
 
           <div className="inputField">

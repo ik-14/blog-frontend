@@ -10,7 +10,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Mainpage setIsAuth={setIsAuth}/>}></Route>
+      <Route path="/" element={<Mainpage setIsAuth={setIsAuth} isAuth={isAuth}/>}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/signup" element={<Signup setIsAuth={setIsAuth}/>}></Route>
     </Routes>

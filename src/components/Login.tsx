@@ -1,7 +1,25 @@
+import { signInWithEmailAndPassword } from "firebase/auth";
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { auth } from "../firebaseconfig";
 
 export default function Home() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const navigate = useNavigate()
+
+  function signIn() {
+    signInWithEmailAndPassword(auth, email, password)
+    .then((user) => {
+      console.log(user.user)
+      navigate('/')
+    }).catch((error) => {
+      console.log(error.code)
+    })
+  }
+
   return (
     <>
       <header>
@@ -12,16 +30,20 @@ export default function Home() {
           <h3>Sign in</h3>
 
           <div className="inputField">
-            <h4>Username</h4>
-            <input type="input" />
+            <h4>Email</h4>
+            <input type="input" onChange={(e) => {
+              setEmail(e.target.value)
+            }}/>
           </div>
 
           <div className="inputField">
             <h4>Password</h4>
-            <input type="input" />
+            <input type="input" onChange={(e) => {
+              setPassword(e.target.value)
+            }}/>
           </div>
 
-          <button className="buttons">sign in</button>
+          <button className="buttons" onClick={signIn}>sign in</button>
 
           <div>
             <p>

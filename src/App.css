@@ -98,4 +98,66 @@ input{
   border-radius: 10px;
   cursor: pointer;
   border: none;
+  transition: .2s;
+}
+
+.buttons:hover{
+  background-color: plum;
+}
+
+.cardCont{
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  padding: 10px;
+}
+
+.cardTitle{
+  border: 2px solid red;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cardBody{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: 1px solid salmon;
+}
+
+.cardBody h2{
+  margin: 0;
+}
+
+.cardAll{
+  padding: 10px;
+  border: 3px solid blanchedalmond;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar{
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  padding: 10px;
+  width: 25vw;
+  float: right;
+  background-color: #484A5D;
+  color: white;
+}
+
+.sidebar button{
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  border: none;
+  outline: none;
+}
+
+.sidebar button:hover{
+  color: whitesmoke;
+  background-color: #585967;
 }
