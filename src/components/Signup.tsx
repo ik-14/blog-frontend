@@ -28,7 +28,7 @@ export default function Signup({setIsAuth}) {
       <header>
         <h1>Insert title</h1>
       </header>
-      <main>
+      <main className='MainLogin'>
         <div className="card">
           <h3>Sign up</h3>
 

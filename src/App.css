@@ -16,7 +16,7 @@ header{
   color: whitesmoke;
 }
 
-main{
+.MainLogin{
   background-color: #6B728E;
   min-height: 90vh;
   min-width: 100vw;
@@ -98,4 +98,8 @@ input{
   border-radius: 10px;
   cursor: pointer;
   border: none;
+}
+
+.Mainfeed{
+  display: flex;
 }

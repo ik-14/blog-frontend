@@ -7,7 +7,7 @@ export default function Home() {
       <header>
         <h1>Insert title</h1>
       </header>
-      <main>
+      <main className='MainLogin'>
         <div className="card">
           <h3>Sign in</h3>
 
